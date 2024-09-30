@@ -1,4 +1,4 @@
-% Document class implementing the BA Dresden Styleguide
+% Document class implementing the DHSN Dresden Styleguide
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{baarticle}[2021/09/24 v1.0.0]
 
@@ -11,25 +11,25 @@
 \toggletrue{baclsheader} % default setting should show the header
 
 % first name of the author
-\DeclareOptionX[BA]{first}{\def\@baclsfirst{#1}}
+\DeclareOptionX[DHSN]{first}{\def\@baclsfirst{#1}}
 % last name of the author
-\DeclareOptionX[BA]{last}{\def\@baclslast{#1}}
+\DeclareOptionX[DHSN]{last}{\def\@baclslast{#1}}
 % company the author works at
-\DeclareOptionX[BA]{company}{\def\@baclscompany{#1}}
+\DeclareOptionX[DHSN]{company}{\def\@baclscompany{#1}}
 % location of the university
-\DeclareOptionX[BA]{location}{\def\@baclslocation{#1}}
+\DeclareOptionX[DHSN]{location}{\def\@baclslocation{#1}}
 % if specified the class will load additional packages and provide the basimple environment, which simplifies the setup
-\DeclareOptionX[BA]{simple}{\toggletrue{baclssimple}}
+\DeclareOptionX[DHSN]{simple}{\toggletrue{baclssimple}}
 % if specified links will be colored
-\DeclareOptionX[BA]{linkcoloring}{\toggletrue{baclslinkcoloring}}
+\DeclareOptionX[DHSN]{linkcoloring}{\toggletrue{baclslinkcoloring}}
 % if specified title will not be shown in the header
-\DeclareOptionX[BA]{noheader}{\togglefalse{baclsheader}}
+\DeclareOptionX[DHSN]{noheader}{\togglefalse{baclsheader}}
 % if specified header title is changed to tis provided title
 % it's recommended to use a maximum lentgth of 80 characters to prevent an overflow
-\DeclareOptionX[BA]{headertitle}{\def\@baclsheadertitle{#1}}
+\DeclareOptionX[DHSN]{headertitle}{\def\@baclsheadertitle{#1}}
 
 \DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{article}}
-\ProcessOptionsX[BA]\relax
+\ProcessOptionsX[DHSN]\relax
 
 % Class is based on the deault article class
 \LoadClass[12pt]{article}
@@ -142,22 +142,22 @@
 
 % Define keys for the title page
 % path to an image, placed in the top right corner
-\define@key[BA]{title}{img}{\def\@batitleimg{#1}}
+\define@key[DHSN]{title}{img}{\def\@batitleimg{#1}}
 % course attended at the university
-\define@key[BA]{title}{course}{\def\@batitlecourse{#1}}
+\define@key[DHSN]{title}{course}{\def\@batitlecourse{#1}}
 % title of the paper
-\define@key[BA]{title}{title}{\def\@batitletitle{#1}}
+\define@key[DHSN]{title}{title}{\def\@batitletitle{#1}}
 % number of the author
-\define@key[BA]{title}{number}{\def\@batitlenumber{#1}}
+\define@key[DHSN]{title}{number}{\def\@batitlenumber{#1}}
 % correctors
-\define@key[BA]{title}{corrector}{\edef\@batitlecorrector{#1}}
+\define@key[DHSN]{title}{corrector}{\edef\@batitlecorrector{#1}}
 % date when the theme of the paper was announced
-\define@key[BA]{title}{themedate}{\def\@batitlethemedate{#1}}
+\define@key[DHSN]{title}{themedate}{\def\@batitlethemedate{#1}}
 % date when the paper has been handed in
-\define@key[BA]{title}{returndate}{\def\@batitlereturndate{#1}}
+\define@key[DHSN]{title}{returndate}{\def\@batitlereturndate{#1}}
 % type of paper (thesis etc...)
-\define@key[BA]{title}{type}{\def\@batitletype{#1}}
-\presetkeys[BA]{title}{type=undefined}{}
+\define@key[DHSN]{title}{type}{\def\@batitletype{#1}}
+\presetkeys[DHSN]{title}{type=undefined}{}
 
 % Clear the header and footer
 \fancyhead{}
@@ -204,7 +204,7 @@
 
 % Title Page
 \newcommand{\mktitle}[1]{
-    \setkeys[BA]{title}{#1}
+    \setkeys[DHSN]{title}{#1}
     \begin{titlepage}
         \begin{wrapfigure}[3]{r}{0.5\textwidth}
             \begin{center}
@@ -243,15 +243,15 @@
 
 % Define keys for the blocking notice
 % signature of the author
-\define@key[BA]{block}{signature}{\def\@bablocksignature{#1}}
+\define@key[DHSN]{block}{signature}{\def\@bablocksignature{#1}}
 % date when the paper is handed in
-\define@key[BA]{block}{date}{\def\@bablockdate{#1}}
+\define@key[DHSN]{block}{date}{\def\@bablockdate{#1}}
 % where the company is located at
-\define@key[BA]{block}{location}{\def\@bablocklocation{#1}}
+\define@key[DHSN]{block}{location}{\def\@bablocklocation{#1}}
 
 % Blocking notice
 \newcommand{\mkblocknotice}[1]{
-    \setkeys[BA]{block}{#1}
+    \setkeys[DHSN]{block}{#1}
     % do not print page number on blocking notice
     \thispagestyle{empty}
     \subsubsection*{Sperrvermerk}
@@ -276,13 +276,13 @@
 
 % Define keys for the affirmation
 % signature of the author
-\define@key[BA]{affirmation}{signature}{\def\@baaffirsignature{#1}}
+\define@key[DHSN]{affirmation}{signature}{\def\@baaffirsignature{#1}}
 % date when the paper is handed in
-\define@key[BA]{affirmation}{date}{\def\@baaffirdate{#1}}
+\define@key[DHSN]{affirmation}{date}{\def\@baaffirdate{#1}}
 
 % Affirmation
 \newcommand{\mkaffirmation}[1]{
-    \setkeys[BA]{affirmation}{#1}
+    \setkeys[DHSN]{affirmation}{#1}
     % do not print page number on affirmation
     \thispagestyle{empty}
     \subsubsection*{Eidesstattliche Erklärung}
@@ -324,31 +324,31 @@
 \iftoggle{baclssimple}{
     % Specify environment keys
     % path to an image, placed in the top right corner
-    \define@key[BA]{simple}{img}{\def\@basimpleimg{#1}}
+    \define@key[DHSN]{simple}{img}{\def\@basimpleimg{#1}}
     % course attended at the university
-    \define@key[BA]{simple}{course}{\def\@basimplecourse{#1}}
+    \define@key[DHSN]{simple}{course}{\def\@basimplecourse{#1}}
     % title of the paper
-    \define@key[BA]{simple}{title}{\def\@basimpletitle{#1}}
+    \define@key[DHSN]{simple}{title}{\def\@basimpletitle{#1}}
     % number of the author
-    \define@key[BA]{simple}{number}{\def\@basimplenumber{#1}}
+    \define@key[DHSN]{simple}{number}{\def\@basimplenumber{#1}}
     % correctors
-    \define@key[BA]{simple}{corrector}{\def\@basimplecorrector{#1}}
+    \define@key[DHSN]{simple}{corrector}{\def\@basimplecorrector{#1}}
     % date when the theme of the paper was announced
-    \define@key[BA]{simple}{themedate}{\def\@basimplethemedate{#1}}
+    \define@key[DHSN]{simple}{themedate}{\def\@basimplethemedate{#1}}
     % date when the paper has been handed in
-    \define@key[BA]{simple}{returndate}{\def\@basimplereturndate{#1}}
+    \define@key[DHSN]{simple}{returndate}{\def\@basimplereturndate{#1}}
     % signature of the author
-    \define@key[BA]{simple}{signature}{\def\@basimplesignature{#1}}
+    \define@key[DHSN]{simple}{signature}{\def\@basimplesignature{#1}}
     % where the company is located at
-    \define@key[BA]{simple}{location}{\def\@basimplelocation{#1}}
+    \define@key[DHSN]{simple}{location}{\def\@basimplelocation{#1}}
     % type of the paper (thesis etc...)
-    \define@key[BA]{simple}{type}{\def\@basimpletype{#1}}
+    \define@key[DHSN]{simple}{type}{\def\@basimpletype{#1}}
     % path to thesis assignment (must be a pdf file)
-    \define@key[BA]{simple}{assignment}{\def\@basimpleassignment{#1}}
+    \define@key[DHSN]{simple}{assignment}{\def\@basimpleassignment{#1}}
     % whether to include the blocknotice or not
-    \define@boolkey[BA]{simple}{blocknotice}[true]{}
+    \define@boolkey[DHSN]{simple}{blocknotice}[true]{}
     
-    \presetkeys[BA]{simple}{type=undefined,blocknotice=true}{}
+    \presetkeys[DHSN]{simple}{type=undefined,blocknotice=true}{}
     
     % adjust glossary styling
     \renewcommand{\glossarypreamble}{\glsfindwidesttoplevelname[\currentglossary]}
@@ -357,7 +357,7 @@
     \makenoidxglossaries
     
     \newenvironment{basimple}[1][]{
-        \setkeys[BA]{simple}{#1}
+        \setkeys[DHSN]{simple}{#1}
         \mktitle{
             title=\@basimpletitle,
             img=\@basimpleimg,
@@ -373,7 +373,7 @@
         }{
             \includepdf[pages={1}]{\@basimpleassignment}
         }
-        \ifBA@simple@blocknotice
+        \ifDHSN@simple@blocknotice
             \mkblocknotice{
                 signature=\@basimplesignature,
                 date=\@basimplereturndate,
@@ -423,12 +423,12 @@
 
 % Specify environment keys
 % Reference to the source
-\define@key[BA]{env}{source}[]{\def\@baenvsource{#1}}
+\define@key[DHSN]{env}{source}[]{\def\@baenvsource{#1}}
 % Label to use with \ref
-\define@key[BA]{env}{label}[]{\def\@baenvlabel{#1}}
+\define@key[DHSN]{env}{label}[]{\def\@baenvlabel{#1}}
 % Placement directive, defaults to H of package float
-\define@key[BA]{env}{placement}{\def\@baenvplacement{#1}}
-\presetkeys[BA]{env}{placement=H,source,label}{}
+\define@key[DHSN]{env}{placement}{\def\@baenvplacement{#1}}
+\presetkeys[DHSN]{env}{placement=H,source,label}{}
 
 % Environment caption
 % Somehow is use of global variables is required here, because otherwiese 
@@ -446,7 +446,7 @@
 % also adds a label which equals the given title
 \newsavebox{\@bafigurebox}
 \newenvironment{bafigure}[2][]{
-\setkeys[BA]{env}{#1}
+\setkeys[DHSN]{env}{#1}
 \csdef{@basource}{\@baenvsource}
 \csdef{@baenvtitle}{#2}
 % the stuff below for begin figure is required because it is
@@ -485,7 +485,7 @@
 % batable centers the content and adds a source reference below the table
 % also adds a label which equals the given title
 \newenvironment{batable}[2][]{
-\setkeys[BA]{env}{#1}
+\setkeys[DHSN]{env}{#1}
 \csdef{@basource}{\@baenvsource}
 \csdef{@baenvtitle}{#2}
 % the stuff below for begin table is required because it is
