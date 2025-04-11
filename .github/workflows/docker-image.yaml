@@ -23,4 +23,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest , ghcr.io/${{ github.repository }}:${{ github.sha }}
+          tags: ghcr.io/paulchen5/ba-latex-template:latest , ghcr.io/paulchen5/ba-latex-template:${{ github.sha }}
