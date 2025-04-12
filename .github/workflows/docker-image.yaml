@@ -30,4 +30,4 @@ jobs:
           file: Dockerfile
           platforms: linux/arm64/v8,linux/amd64
           push: true
-          tags: ghcr.io/paulchen5/ba-latex-template:${{ env.gitsha }}
+          tags: ghcr.io/paulchen5/ba-latex-template:latest,ghcr.io/paulchen5/ba-latex-template:${{ env.gitsha }}
