@@ -8,13 +8,15 @@ jobs:
   build_and_push:
     runs-on: ubuntu-latest
     env:
-      gitsha: ""
+      VERSION: ""
+      IMAGE: ""
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: get git sha
-        # id: vars
-        run: echo "gitsha=$(git rev-parse --short=8 HEAD)" >> $GITHUB_ENV
+      - name: Set image version
+        run: echo "VERSION=$(git rev-parse --short=8 HEAD)" >> $GITHUB_ENV
+      - name: Set image name
+        run: echo "IMAGE=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Log in to ghcr.io
@@ -30,4 +32,4 @@ jobs:
           file: Dockerfile
           platforms: linux/arm64/v8,linux/amd64
           push: true
-          tags: ghcr.io/paulchen5/ba-latex-template:latest,ghcr.io/paulchen5/ba-latex-template:${{ env.gitsha }}
+          tags: ghcr.io/${{ env.IMAGE }}:latest,ghcr.io/${{ env.IMAGE }}:${{ env.VERSION }}
