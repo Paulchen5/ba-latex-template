@@ -41,6 +41,7 @@ jobs:
             org.opencontainers.image.authors="${{ env.USER_NAME }} <${{ env.USER_EMAIL }}>" \
             org.opencontainers.image.source="https://github.com/${{ github.repository }}" \
             org.opencontainers.image.licenses="The Unlicense"
+            org.opencontainers.image.description="A LaTeX template, which tries to implement the DHSN Dresden Styleguide, packaged into a Docker image. The image sets the TEXINPUTS environment varibale to a reference to the template. The template itself is located under `/usr/local/share/ba-latex-template/`"
           platforms: linux/arm64/v8,linux/amd64
           push: true
           tags: ghcr.io/${{ env.IMAGE }}:latest,ghcr.io/${{ env.IMAGE }}:${{ env.VERSION }}
