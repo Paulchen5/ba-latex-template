@@ -34,6 +34,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
+          annotations: org.opencontainers.image.description=Docker image containing a LaTeX template aligned with the DHSN Dresden Styleguide. TEXINPUTS is preconfigured to include the template.
           context: .
           file: Dockerfile
           labels: |
@@ -41,8 +42,6 @@ jobs:
             org.opencontainers.image.authors=${{ env.USER_NAME }} <${{ env.USER_EMAIL }}> \
             org.opencontainers.image.source=https://github.com/${{ github.repository }} \
             org.opencontainers.image.licenses=The Unlicense
-            org.opencontainers.image.description=Docker image containing a LaTeX template
-          #            org.opencontainers.image.description=Docker image containing a LaTeX template aligned with the DHSN Dresden Styleguide. TEXINPUTS is preconfigured to include the template.
           platforms: linux/arm64/v8,linux/amd64
           push: true
           tags: ghcr.io/${{ env.IMAGE }}:latest,ghcr.io/${{ env.IMAGE }}:${{ env.VERSION }}
