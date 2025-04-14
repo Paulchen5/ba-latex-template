@@ -1,7 +1,7 @@
 FROM texlive/texlive:latest
 
 LABEL \
-    org.opencontainers.image.description="A LaTeX template, which tries to implement the DHSN Dresden Styleguide, packaged into a Docker image. The image sets the TEXINPUTS environment varibale to a reference to the template. The template itself is located under `/usr/local/share/ba-latex-template/`"
+    org.opencontainers.image.description="Docker image containing a LaTeX template aligned with the DHSN Dresden Styleguide. TEXINPUTS is preconfigured to include the template."
 
 COPY . /usr/local/share/ba-latex-template
 
