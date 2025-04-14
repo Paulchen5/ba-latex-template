@@ -10,6 +10,8 @@ jobs:
     env:
       VERSION: ""
       IMAGE: ""
+      USER_NAME: ""
+      USER_EMAIL: ""
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -17,6 +19,10 @@ jobs:
         run: echo "VERSION=$(git rev-parse --short=8 HEAD)" >> $GITHUB_ENV
       - name: Set image name
         run: echo "IMAGE=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+      - name: Get user name and email
+        run: |
+          echo "USER_NAME=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
+          echo "USER_EMAIL=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Log in to ghcr.io
@@ -30,6 +36,11 @@ jobs:
         with:
           context: .
           file: Dockerfile
+          labels: |
+            org.opencontainers.image.title="Docker Image of BA LaTeX Template" \
+            org.opencontainers.image.authors="${{ env.USER_NAME }} <${{ env.USER_EMAIL }}>" \
+            org.opencontainers.image.source="https://github.com/${{ github.repository }}" \
+            org.opencontainers.image.licenses="The Unlicense"
           platforms: linux/arm64/v8,linux/amd64
           push: true
           tags: ghcr.io/${{ env.IMAGE }}:latest,ghcr.io/${{ env.IMAGE }}:${{ env.VERSION }}
