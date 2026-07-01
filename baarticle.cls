@@ -310,18 +310,29 @@
     Auf Wunsch des Unternehmens \@baclscompany{} ist die vorliegende Arbeit für die öffentliche Nutzung zu sperren.
     Veröffentlichung, Vervielfältigung und Einsichtnahme sind ohne ausdrückliche Genehmigung des Unternehmens \@baclscompany{}, in \@bablocklocation{} und des Verfassers \@baclsfirst{} \@baclslast{} nicht gestattet.
     Die Arbeit ist nur den Gutachtern und den Mitgliedern des Prüfungsausschusses zugänglich zu machen.
+
     \bigskip\par
+    \par\noindent
+    \space \@baclslast{}, \@baclsfirst{} \vspace{-14pt} \\
+    \rule{0.4\textwidth}{0.5pt} \vspace{-6pt}\\
+    \noindent
+    \makebox[0.4\textwidth][l]{\space Name, Vorname Verfassender}
+
     \begin{wrapfigure}[1]{r}{0.3\textwidth}
         \begin{center}
-            \vspace{-32pt}
+            \vspace{-46pt}
+            \hspace{-50pt}
             \includegraphics[width=0.28\textwidth]{\@bablocksignature}
         \end{center}
     \end{wrapfigure}
     \bigskip
+
     \par\noindent
-    \@baclslocation{}, \@bablockdate{}
-    \par\noindent
-    Ort, Datum\hfill Unterschrift des Verfassers
+    \space \@bablocklocation{}, \@bablockdate{} \vspace{-14pt} \\
+    \rule{0.4\textwidth}{0.5pt}\hfill \rule{0.4\textwidth}{0.5pt}\vspace{-6pt} \\
+    \noindent
+    \makebox[0.4\textwidth][l]{\space Ort, Datum}\hfill \makebox[0.4\textwidth][l]{\space Unterschrift Verfassender} \\
+
     \clearpage
 }
 
