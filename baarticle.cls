@@ -480,7 +480,13 @@
         \ifdefvoid{\@basimpleassignment}{
             % no assignment file set, do nothing
         }{
-            \includepdf[pages={1}]{\@basimpleassignment}
+            \ifnum\pdfstrcmp{\jobname}{print}=0
+                \addtocounter{page}{1}
+            \else\ifnum\pdfstrcmp{\jobname}{digital}=0
+                    \includepdf[pages={1}]{\@basimpleassignment}
+                \else % digital case
+                    \includepdf[pages={1}]{\@basimpleassignment}
+                \fi\fi
         }
         \ifBA@simple@blocknotice
             \mkblocknotice{
