@@ -681,3 +681,31 @@
     \csundef{@basource}
     \csundef{@baenvtitle}
 }
+
+\newenvironment{bainterview}[2][]{
+    \setkeys[BA]{env}{#1}
+    \csdef{@basource}{\@baenvsource}
+    \csdef{@baenvtitle}{#2}
+    \par
+}{
+    \iftoggle{baclsappx}{
+        \addtoappx{\@baenvtitle}
+        \begin{center}
+            \vspace{-5pt}
+            \small
+            Anhang \theappx{}: \@bacaption
+        \end{center}
+    }{
+    }
+    \ifdefempty{\@baenvlabel}{
+        \label{\@baenvtitle}
+    }{
+        \label{\@baenvlabel}
+    }
+    \csundef{@basource}
+    \csundef{@baenvtitle}
+}
+
+\newcommand{\interviewcite}[3]{
+    \footnote{Vgl. #1, (#2), siehe Anhang \ref{#3}}
+}
