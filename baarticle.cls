@@ -694,7 +694,7 @@
     \csdef{@basource}{\@baenvsource}
     \csdef{@baenvtitle}{#2}
     \par
-    \small
+    \footnotesize
     \begin{adjustwidth}{0cm}{0.5cm}%
 }{
     \end{adjustwidth}%
